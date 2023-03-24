@@ -13,7 +13,7 @@
 
     <script>
         var socket = io();
-
+        
         socket.on('connect', function(){
            console.log('Conectado al servidor');
         });
@@ -24,7 +24,7 @@
 
         socket.emit('mensaje', { nombre: 'Jesus'});
 
-        socket.on('mensaje', function( payload ){
+        socket.on('nuevo-mensaje', function( payload ){
             console.log('Escuchando', payload);
         });
     </script>

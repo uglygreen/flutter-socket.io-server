@@ -11,5 +11,12 @@ io.on('connection', client => {
         console.log('Mensaje', payload);
 
         io.emit('mensaje', { admin: 'Nuevo mensaje'});
-    })
+    });
+
+    client.on('emitir-mensaje', ( payload ) => {
+        //console.log(payload);
+        // io.emit('nuevo-mensaje', payload ); // emite a todos!
+        client.broadcast.emit('nuevo-mensaje', payload); //No regresa el mensaje al cliente que lo envia
+
+    });
   });
